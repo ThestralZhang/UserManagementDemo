@@ -1,4 +1,7 @@
-import './index.less';
-import './test.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import "./test.css";
+import "./index.less";
 
-console.log('success');
+ReactDOM.render(<App />, document.getElementById("root"));
