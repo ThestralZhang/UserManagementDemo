@@ -1,4 +1,11 @@
-const accountReducer = (state=[], action) => {
+const initialState = [
+    { id: 1, nickname: "ladkl", realname: "Slder", email: "dewf@fw.vre" },
+    { id: 2, nickname: "2ladkl", realname: "Slder", email: "dewf@fw.vre" },
+    { id: 3, nickname: "3ladkl", realname: "Slder", email: "dewf@fw.vre" }
+];
+
+
+const accountReducer = (state=initialState, action) => {
     switch (action.type){
         case 'EDIT_ACCOUNT':
             return state.map(user => {

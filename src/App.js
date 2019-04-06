@@ -1,7 +1,7 @@
 import React from "react";
 import { Router, Route, hashHistory } from "react-router-3";
-import UserInfo from "./UserInfoComponent";
-import UserList from "./UserListComponent";
+import UserInfo from "./components/UserInfo";
+import UserList from "./components/UserList";
 
 let users = [
     {nickname: 'A.Ham', realname: 'Alexander', email: 'd32d@f9e.com'},
