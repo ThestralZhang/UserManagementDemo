@@ -17,7 +17,7 @@ export default class UserList extends React.Component {
       <div>
         <div>
           <h3>User List</h3>
-          <span>count: {3}</span>
+          <span>count: {this.props.users.length}</span>
           <Link to="/info">Add</Link>
         </div>
         <table>
