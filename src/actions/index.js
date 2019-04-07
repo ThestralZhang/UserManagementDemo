@@ -24,9 +24,12 @@ export const editing = value => ({
     value
 });
 
-export const startEdit = id => ({
+export const startEdit = (id, nickname, realname, email) => ({
     type: START_EDIT,
-    id
+    id,
+    nickname,
+    realname,
+    email
 });
 
 export const validate = value => ({

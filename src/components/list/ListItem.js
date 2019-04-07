@@ -13,8 +13,8 @@ export default class ListItem extends React.Component {
         <td>{this.props.user.realname}</td>
         <td>{this.props.user.email}</td>
         <td>
-            <Link to={{pathname: "/info", state: this.props.user.id}}>Edit</Link>
-          <button onClick={this.props.handleDelete}>Delete</button>
+            <Link to='/info' onClick={this.props.clickEdit}>Edit</Link>
+          <button onClick={this.props.clickDelete}>Delete</button>
         </td>
       </tr>
     );

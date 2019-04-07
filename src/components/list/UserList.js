@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-3";
 import ListItem from "./ListItem";
 import {connect} from "react-redux";
-import {deleteAccount} from "../../actions/index";
+import {startEdit, deleteAccount} from "../../actions/index";
 
 class UserList extends React.Component {
   constructor(props) {
@@ -15,7 +15,8 @@ class UserList extends React.Component {
           <ListItem
               user={u}
               key={u.id}
-              handleDelete={_ => this.props.handleDelete(u.id)}
+              clickEdit={_ => this.props.clickEdit(u.id, u.nickname, u.realname, u.email)}
+              clickDelete={_ => this.props.clickDelete(u.id)}
           />)
     ) : (
         <tr><td>No User in List yet</td></tr>
@@ -47,8 +48,9 @@ const mapStateToProps = state => ({
     users: state.users
 });
 
-const mapDispatchToProps = dispatch => ({
-    handleDelete: id => dispatch(deleteAccount(id))
+const mapDispatchToProps = (dispatch) => ({
+    clickEdit: (id, nickname, realname, email) => dispatch(startEdit(id, nickname, realname, email)),
+    clickDelete: id => dispatch(deleteAccount(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserList);
