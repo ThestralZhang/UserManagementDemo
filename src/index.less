@@ -1,4 +1,4 @@
-@primeColor: #00BFFF;
+@primeColor: #00bfff;
 @shadowBlue: #2b96fc;
 @tintBlue: #e5f2fc;
 @lightYellow: #fbd569;
@@ -12,33 +12,33 @@
 @contentFontSize: 16px;
 @footerFontSize: 12px;
 
-body{
+body {
   margin: 0;
   padding: 0;
-  font-family: 'Microsoft Yahei', Helvetica, Arial, sans-serif;
+  font-family: "Microsoft Yahei", Helvetica, Arial, sans-serif;
 }
 
-.bd(@c) when (iscolor(@c)){
-  border: 1px solid @c
+.bd(@c) when (iscolor(@c)) {
+  border: 1px solid @c;
 }
 
-.bd(@c) when (isstring(@c)){
-  border: none
+.bd(@c) when (isstring(@c)) {
+  border: none;
 }
 
-.btn(@bdColor, @bg, @hoverSd, @activeBg, @activeSd){
+.btn(@bdColor, @bg, @hoverSd, @activeBg, @activeSd) {
   .bd(@bdColor);
   background: @bg;
   outline: none;
   text-decoration: none;
   text-align: center;
-  &:hover{
+  &:hover {
     transform: translate(-1px, -1px);
     -webkit-box-shadow: 1px 1px @hoverSd;
     -moz-box-shadow: 1px 1px @hoverSd;
     box-shadow: 1px 1px @hoverSd;
   }
-  &:active{
+  &:active {
     transform: translate(1px, 1px);
     background: @activeBg;
     -webkit-box-shadow: 1px 1px @activeSd inset;

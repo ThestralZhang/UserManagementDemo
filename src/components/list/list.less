@@ -4,8 +4,7 @@
 @tableHeadHeight: 40px;
 @tableRowHeight: 30px;
 
-
-#list-header{
+#list-header {
   width: 100%;
   height: @headerHeight;
 
@@ -17,7 +16,7 @@
   background-color: @primeColor;
   color: white;
 
-  span{
+  span {
     margin-left: 20px;
     margin-bottom: 5px;
 
@@ -26,15 +25,14 @@
     font-size: @contentFontSize;
   }
 
-  h2{
+  h2 {
     margin: 0 auto;
 
     font-size: @headerFontSize;
   }
 }
 
-
-#add-link{
+#add-link {
   width: 60px;
   height: 30px;
   margin-right: 20px;
@@ -49,16 +47,15 @@
   font-size: @headerFontSize;
   font-weight: bolder;
 
-  .btn(@primeColor, white, @shadowBlue, @tintBlue, @shadowBlue)
+  .btn(@primeColor, white, @shadowBlue, @tintBlue, @shadowBlue);
 }
 
-
-#user-list{
+#user-list {
   width: 80%;
-  margin: @headerHeight+@tableHeadHeight auto 0 auto;
+  margin: @headerHeight+ @tableHeadHeight auto 0 auto;
   table-layout: fixed;
 
-  thead tr{
+  thead tr {
     width: 80%;
 
     display: flex;
@@ -70,32 +67,31 @@
     color: @primeColor;
     background-color: white;
 
-    th{
+    th {
       height: @tableHeadHeight;
       line-height: @tableHeadHeight;
     }
   }
 
-  tbody tr{
+  tbody tr {
     font-size: @contentFontSize;
     color: @mainFontColor;
 
-    &:nth-child(odd){
+    &:nth-child(odd) {
       background-color: lightgray;
     }
-    &:nth-child(even){
+    &:nth-child(even) {
       background-color: white;
     }
 
-    td{
+    td {
       padding-left: 20px;
       height: @tableRowHeight;
     }
   }
 }
 
-
-.op-td{
+.op-td {
   padding-left: 0 !important;
 
   display: flex;
@@ -103,7 +99,7 @@
   align-items: center;
 }
 
-.op-btn{
+.op-btn {
   width: 20px;
   height: 20px;
   color: white;
@@ -111,27 +107,17 @@
 }
 
 @imgUrl: url(./sprites.png);
-.edit-btn{
+.edit-btn {
   margin-right: 8%;
   .btn(
-    'none',
+    "none",
     @imgUrl -2px -2px,
     @shadowYellow,
     @imgUrl -26px -2px,
     @shadowYellow
-  )
+  );
 }
-.delete-btn{
+.delete-btn {
   margin-left: 8%;
-  .btn(
-    'none',
-    @imgUrl -2px -26px,
-    @shadowRed,
-    @imgUrl -26px -26px,
-    @shadowRed
-  )
+  .btn("none", @imgUrl -2px -26px, @shadowRed, @imgUrl -26px -26px, @shadowRed);
 }
-
-
-
-

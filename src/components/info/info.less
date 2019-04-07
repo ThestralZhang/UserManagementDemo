@@ -1,6 +1,6 @@
 @import "../../index";
 
-#info-frame{
+#info-frame {
   width: 40%;
   border: 1px solid lightgray;
 
@@ -11,7 +11,7 @@
 
   border-radius: 15px;
 
-  h2{
+  h2 {
     height: 80px;
     margin: 0 0 20px 0;
 
@@ -25,19 +25,19 @@
   }
 }
 
-#info-form{
+#info-form {
   padding: 20px 20px 0 20px;
   background-color: white;
 }
 
-.info-field{
+.info-field {
   margin-bottom: 20px;
 
   overflow: hidden;
 
   text-align: center;
 
-  input{
+  input {
     width: 80%;
     height: 30px;
     padding-left: 10px;
@@ -49,13 +49,13 @@
     outline: none;
     color: @mainFontColor;
 
-    &:focus{
+    &:focus {
       border-bottom: 1px solid @primeColor;
     }
   }
 }
 
-.info-btn{
+.info-btn {
   width: 80px;
   height: 20px;
   margin: 30px auto;
@@ -68,19 +68,13 @@
   border-radius: 10px;
   color: @primeColor;
 
-  .btn(
-    @primeColor,
-    white,
-    @shadowBlue,
-    @tintBlue,
-    @shadowBlue
-  )
+  .btn(@primeColor, white, @shadowBlue, @tintBlue, @shadowBlue);
 }
 
-.msg-box{
+.msg-box {
   width: 220px;
-  height: 25px;
-  padding: 5px;
+  height: 30px;
+  padding: 2px 5px;
   border: 1px solid @lightRed;
 
   display: inline-block;
@@ -94,6 +88,7 @@
   color: gray;
 }
 
-.btn-hidden, .msg-hidden{
+.btn-hidden,
+.msg-hidden {
   display: none;
 }
