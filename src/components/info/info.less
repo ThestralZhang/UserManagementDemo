@@ -1,94 +1,99 @@
+@import "../../index";
+
 #info-frame{
   width: 40%;
   border: 1px solid lightgray;
-  border-radius: 15px;
+
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
 
-#info-frame h2{
-  background-color: deepskyblue;
-  border-radius: 15px 15px 0 0;
-  color: white;
-  text-align: center;
-  margin: 0 0 20px 0;
-  height: 80px;
-  line-height: 80px;
+  border-radius: 15px;
+
+  h2{
+    height: 80px;
+    margin: 0 0 20px 0;
+
+    text-align: center;
+    line-height: 80px;
+    font-size: @headerFontSize;
+
+    border-radius: 15px 15px 0 0;
+    background-color: @primeColor;
+    color: white;
+  }
 }
 
 #info-form{
   padding: 20px 20px 0 20px;
+  background-color: white;
 }
 
 .info-field{
   margin-bottom: 20px;
-  text-align: center;
+
   overflow: hidden;
-}
 
-.info-field input{
-  height: 30px;
-  width: 80%;
-  border: none;
-  border-bottom: 1px solid lightgray;
-  font-size: 15px;
-  padding-left: 10px;
-  padding-bottom: 5px;
-  outline: none;
-}
+  text-align: center;
 
-.info-field input:focus{
-  border-bottom: 1px solid deepskyblue;
+  input{
+    width: 80%;
+    height: 30px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    border: none;
+    border-bottom: 1px solid lightgray;
+
+    font-size: @contentFontSize;
+    outline: none;
+    color: @mainFontColor;
+
+    &:focus{
+      border-bottom: 1px solid @primeColor;
+    }
+  }
 }
 
 .info-btn{
-  display: block;
   width: 80px;
   height: 20px;
-  border-radius: 10px;
-  border: 1px solid deepskyblue;
-  color: deepskyblue;
-  text-decoration: none;
-  text-align: center;
-  line-height: 20px;
-  font-size: 12px;
   margin: 30px auto;
-}
 
-.info-btn:hover{
-  transform: translate(-1px, -1px);
-  box-shadow: 1px 1px #2b96fc;
-}
+  display: block;
 
-.info-btn:active{
-  transform: translate(1px, 1px);
-  box-shadow: 1px 1px #2b96fc inset;
-  background-color: #e5f2fc;
-}
+  line-height: 20px;
+  font-size: @footerFontSize;
 
-.btn-hidden{
-  display: none;
+  border-radius: 10px;
+  color: @primeColor;
+
+  .btn(
+    @primeColor,
+    white,
+    @shadowBlue,
+    @tintBlue,
+    @shadowBlue
+  )
 }
 
 .msg-box{
+  width: 220px;
+  height: 25px;
+  padding: 5px;
+  border: 1px solid @lightRed;
+
   display: inline-block;
   position: absolute;
-  border: 1px solid #fa5035;
-  height: 25px;
   left: 90%;
-  //max-width: 150px;
-  width: 220px;
-  font-size: 12px;
-  padding: 5px;
+
   border-radius: 3px;
-  color: gray;
-  background-color: white;
   text-align: left;
-  //margin-left: -100%;
+  font-size: @footerFontSize;
+  background-color: white;
+  color: gray;
 }
 
-.msg-hidden{
+.btn-hidden, .msg-hidden{
   display: none;
 }
