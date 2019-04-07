@@ -11,4 +11,4 @@ export const EDITING = 'EDITING';
 
 export const CONFIRM_EDIT = 'CONFIRM_EDIT';
 
-export const VALIDATE = 'VALDATE';
+export const VALIDATE = 'VALIDATE';

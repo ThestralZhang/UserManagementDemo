@@ -40,8 +40,9 @@ export const startEdit = (id, nickname, realname, email) => ({
     email
 });
 
-export const validate = value => ({
+export const validate = (name, msg) => ({
     type: VALIDATE,
-    value
+    name,
+    msg
 });
 

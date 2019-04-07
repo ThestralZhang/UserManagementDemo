@@ -3,7 +3,6 @@ import React from 'react';
 export default class InfoField extends React.Component{
     constructor(props){
         super(props);
-        // this.validate = props.validate;
     }
 
     render() {
@@ -13,9 +12,12 @@ export default class InfoField extends React.Component{
               <input
                   type={this.props.type || 'text'}
                   value={this.props.value}
-                  onBlur={_ => this.props.validate(this.props.value)}
+                  onBlur={this.props.validate}
                   onChange={this.props.onChange}
               />
+              <span>
+                  {this.props.msg}
+              </span>
           </div>
         );
     }

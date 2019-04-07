@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
 import users from './users';
 import fieldContents from './fieldContents';
-import message from './message';
+import validateMsg from './validateMsg';
 
 export default combineReducers({
     users,
     fieldContents,
-    message
+    validateMsg
 });
