@@ -3,6 +3,7 @@ import { Link } from "react-router-3";
 import ListItem from "./ListItem";
 import {connect} from "react-redux";
 import {startAdd, startEdit, deleteAccount} from "../../actions/index";
+import "./list.less";
 
 class UserList extends React.Component {
   constructor(props) {
@@ -23,15 +24,15 @@ class UserList extends React.Component {
     );
     return (
       <div>
-        <div>
-          <h3>User List</h3>
-          <span>count: {this.props.users.length}</span>
-          <Link to="/info" onClick={_ => {
+        <div id='list-header'>
+            <span>count: {this.props.users.length}</span>
+            <h2>User List</h2>
+          <Link id='add-link' to="/info" onClick={_ => {
               const us = this.props.users;
               this.props.clickAdd(us.length? us[us.length-1].id + 1 : 0)}
-          }>Add</Link>
+          }>+</Link>
         </div>
-        <table>
+        <table id="user-list">
           <thead>
             <tr>
               <th>Nick Name</th>

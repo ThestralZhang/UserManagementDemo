@@ -1,0 +1,141 @@
+#list-header h2{
+  margin: 0 auto;
+}
+
+#list-header{
+  background-color: deepskyblue;
+  color: white;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+#list-header span{
+  margin-left: 20px;
+  margin-bottom: 5px;
+  align-self: flex-end;
+}
+
+#add-link{
+  margin-right: 20px;
+  color: deepskyblue;
+  text-decoration: none;
+  width: 60px;
+  height: 30px;
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+#add-link:hover{
+  transform: translate(-1px, -1px);
+  box-shadow: 1px 1px #2b96fc;
+}
+
+#add-link:active{
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px #2b96fc inset;
+  background-color: #e5f2fc;
+}
+
+#user-list{
+  width: 80%;
+  margin: 90px auto 0 auto;
+}
+
+#user-list thead{
+  color: deepskyblue;
+
+  background-color: white;
+}
+
+#user-list thead th{
+  height: 40px;
+}
+
+#user-list tbody tr{
+  width: 100%;
+}
+
+#user-list tbody tr td{
+  padding-left: 20px;
+  height: 30px;
+}
+
+#user-list tbody tr:nth-child(odd){
+  background-color: lightgray;
+}
+
+thead tr{
+  display: flex;
+  //background-color: antiquewhite;
+  width: 80%;
+  position: fixed;
+  top: 50px;
+  align-items: center;
+  justify-content: space-around;
+  background-color: white;
+}
+
+thead tr th{
+  line-height: 40px;
+}
+
+.op-td{
+  display: flex;
+  padding-left: 0 !important;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.op-btn{
+  width: 20px;
+  height: 20px;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+.edit-btn{
+  background: url(./sprites.png) -2px -2px;
+  margin-right: 8%;
+}
+
+.edit-btn:hover{
+  transform: translate(-1px, -1px);
+  box-shadow: 1px 1px #fbd569;
+}
+
+.edit-btn:active{
+  background: url(./sprites.png) -26px -2px;
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px #fbcb46 inset;
+}
+
+.delete-btn{
+  background: url(./sprites.png) -2px -26px;
+  margin-left: 8%;
+}
+
+.delete-btn:hover{
+  transform: translate(-1px, -1px);
+  box-shadow: 1px 1px #fa5035;
+}
+
+.delete-btn:active{
+  background: url(./sprites.png) -26px -26px;
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px #fa4421 inset;
+}
+
+
+
+
