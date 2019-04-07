@@ -1,7 +1,10 @@
 import React from "react";
 import { Router, Route, hashHistory } from "react-router-3";
-import UserInfo from "./components/UserInfo";
-import UserList from "./components/UserList";
+import UserInfo from "./components/info/UserInfo";
+import UserList from "./components/list/UserList";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import reducers from "./reducers/index";
 
 let users = [
     {nickname: 'A.Ham', realname: 'Alexander', email: 'd32d@f9e.com'},
@@ -12,13 +15,17 @@ let users = [
 
 ];
 
+const store = createStore(reducers);
+
 class App extends React.Component {
   render() {
     return (
-      <Router history={hashHistory}>
-        <Route path="/info" component={UserInfo}  />
-        <Route path="/" component={() => <UserList users={users}/>}/>
-      </Router>
+        <Provider store={store}>
+            <Router history={hashHistory}>
+                <Route path="/" component={UserList}/>
+                <Route path="/info" component={UserInfo} />
+            </Router>
+        </Provider>
     );
   }
 }

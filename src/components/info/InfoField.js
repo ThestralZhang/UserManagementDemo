@@ -11,7 +11,7 @@ export default class InfoField extends React.Component{
         return (
           <div>
               <label>{this.props.label}</label>
-              <input type={this.props.type || 'text'} onBlur={this.props.validate}/>
+              <input type={this.props.type || 'text'} value={this.props.value} onBlur={_ => this.props.validate(this.props.value)}/>
           </div>
         );
     }

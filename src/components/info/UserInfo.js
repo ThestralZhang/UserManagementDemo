@@ -6,8 +6,14 @@ import MessageBox from "./MessageBox";
 export default class UserInfo extends React.Component{
     constructor(props){
         super(props);
-        this.state = {message: ''};
-        UserInfo.handleSubmit = UserInfo.handleSubmit.bind(this);
+        this.state = {
+            message: '',
+            nickname: '',
+            realname: '',
+            email: ''
+        };
+        // UserInfo.handleSubmit = UserInfo.handleSubmit.bind(this);
+        // this.validateNickName = this.validateNickName.bind(this);
     }
 
     handleSubmit(e){
@@ -15,6 +21,7 @@ export default class UserInfo extends React.Component{
     }
 
     validateNickName(nickName){
+        console.log(typeof nickName);
         if(nickName.length > 8)
             this.setState({message: 'nick name too long'});
         else if(nickName.length < 3)
@@ -36,6 +43,7 @@ export default class UserInfo extends React.Component{
     }
 
     render(){
+        // const {}
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>

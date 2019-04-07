@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-3";
 
 export default class ListItem extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ export default class ListItem extends React.Component {
         <td>{this.props.user.realname}</td>
         <td>{this.props.user.email}</td>
         <td>
-          {/*<button onClick={this.props.handleEdit}>Edit</button>*/}
+            <Link to={{pathname: "/info", state: this.props.user.id}}>Edit</Link>
           <button onClick={this.props.handleDelete}>Delete</button>
         </td>
       </tr>

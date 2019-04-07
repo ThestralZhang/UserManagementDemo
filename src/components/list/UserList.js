@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-3";
 import ListItem from "./ListItem";
 import {connect} from "react-redux";
-import {editAccount, deleteAccount} from "../actions/index";
+import {deleteAccount} from "../../actions/index";
 
 class UserList extends React.Component {
   constructor(props) {
@@ -15,7 +15,6 @@ class UserList extends React.Component {
           <ListItem
               user={u}
               key={u.id}
-              // handleEdit={this.props.handleEdit}
               handleDelete={_ => this.props.handleDelete(u.id)}
           />)
     ) : (
@@ -45,11 +44,10 @@ class UserList extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    users: state
+    users: state.users
 });
 
 const mapDispatchToProps = dispatch => ({
-    // handleEdit: (id, info) => dispatch(editAccount(id, info)),
     handleDelete: id => dispatch(deleteAccount(id))
 });
 
