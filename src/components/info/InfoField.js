@@ -7,17 +7,17 @@ export default class InfoField extends React.Component{
 
     render() {
         return (
-          <div>
-              <label>{this.props.label}</label>
+          <div className="info-field">
               <input
                   type={this.props.type || 'text'}
+                  placeholder={this.props.placeholder}
                   value={this.props.value}
                   onBlur={this.props.validate}
                   onChange={this.props.onChange}
               />
-              <span>
+              <div className={"msg-box" + (this.props.msg? "" : " msg-hidden")}>
                   {this.props.msg}
-              </span>
+              </div>
           </div>
         );
     }

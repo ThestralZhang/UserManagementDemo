@@ -13,7 +13,7 @@ class UserInfo extends React.Component{
 
     validate_nickname(nickName){
         if(nickName.length > 12 || nickName.length < 4)
-            return 'Length of nickname should be between 4 - 12.';
+            return 'Length of nick name should be between 4 - 12.';
         else if(!/^[\u4e00-\u9fa5_a-zA-Z0-9]+$/.test(nickName))
             return 'Nickname should only contains "_", characters, numbers and letters.';
         else {
@@ -21,7 +21,7 @@ class UserInfo extends React.Component{
             if(!foundUser)
                 return '';
             else if(this.props.mode !== 'EDIT' || foundUser.id !== this.props.id)
-                return 'This nickname already exists.';
+                return 'This nick name already exists.';
         }
     }
 
@@ -29,7 +29,7 @@ class UserInfo extends React.Component{
         if(realName.length > 12 || realName.length < 2)
             return 'Length of realname should be between 2 - 12.';
         else if(!/^[a-zA-Z]+\s?[a-zA-Z]+$|^[\u4e00-\u9fa5]+$/.test(realName))
-            return 'Realname should contains only characters or only letters.';
+            return 'Real name should contains only characters or only letters.';
         else
             return '';
     }
