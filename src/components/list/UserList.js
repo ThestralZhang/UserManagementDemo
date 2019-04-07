@@ -19,14 +19,17 @@ class UserList extends React.Component {
               clickDelete={_ => this.props.clickDelete(u.id)}
           />)
     ) : (
-        <tr><td>No User in List yet</td></tr>
+        <tr><td colSpan={4}> No User in List yet</td></tr>
     );
     return (
       <div>
         <div>
           <h3>User List</h3>
           <span>count: {this.props.users.length}</span>
-          <Link to="/info" onClick={_ => this.props.clickAdd(this.props.users[this.props.users.length-1].id + 1)}>Add</Link>
+          <Link to="/info" onClick={_ => {
+              const us = this.props.users;
+              this.props.clickAdd(us.length? us[us.length-1].id + 1 : 0)}
+          }>Add</Link>
         </div>
         <table>
           <thead>
