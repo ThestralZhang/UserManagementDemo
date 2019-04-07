@@ -48,7 +48,7 @@ const mapStateToProps = state => ({
     users: state.users
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     clickEdit: (id, nickname, realname, email) => dispatch(startEdit(id, nickname, realname, email)),
     clickDelete: id => dispatch(deleteAccount(id))
 });

@@ -19,8 +19,9 @@ export const confirmEdit = (id, nickname, realname, email) => ({
     info
 });
 
-export const editing = value => ({
+export const editing = (name, value) => ({
     type: EDITING,
+    name,
     value
 });
 

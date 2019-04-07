@@ -11,7 +11,8 @@ const fieldContents = (state = initState, action) => {
             };
         case 'EDITING':
             return {
-
+                ...state,
+                [action.name]: action.value
             };
         default:
             return state;

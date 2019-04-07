@@ -3,6 +3,7 @@ import { Link } from "react-router-3";
 import InfoField from "./InfoField";
 import MessageBox from "./MessageBox";
 import { connect } from "react-redux";
+import { editing } from "../../actions/index";
 
 class UserInfo extends React.Component{
     constructor(props){
@@ -42,9 +43,24 @@ class UserInfo extends React.Component{
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <InfoField label='Nick Name' validate={this.validateNickName} value={this.props.nickname}/>
-                    <InfoField label='Real Name' validate={this.validateRealName} value={this.props.realname}/>
-                    <InfoField label='Email Address' validate={this.validateEmailAddress} value={this.props.email}/>
+                    <InfoField
+                        label='Nick Name'
+                        validate={this.validateNickName}
+                        value={this.props.nickname}
+                        onChange={e => this.props.onChange('nickname', e.target.value)}
+                    />
+                    <InfoField
+                        label='Real Name'
+                        validate={this.validateRealName}
+                        value={this.props.realname}
+                        onChange={e => this.props.onChange('realname', e.target.value)}
+                    />
+                    <InfoField
+                        label='Email Address'
+                        validate={this.validateEmailAddress}
+                        value={this.props.email}
+                        onChange={e => this.props.onChange('email', e.target.value)}
+                    />
 
                     <button>Confirm</button>
                     <Link to='/'>Cancel</Link>
@@ -55,11 +71,15 @@ class UserInfo extends React.Component{
     }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
     nickname: state.fieldContents.nickname,
     realname: state.fieldContents.realname,
     email: state.fieldContents.email
 });
 
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    onChange: (name, value) => dispatch(editing(name, value))
+});
 
-export default connect(mapStateToProps)(UserInfo);
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserInfo);
