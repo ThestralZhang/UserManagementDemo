@@ -3,17 +3,13 @@ import { Link } from "react-router-3";
 import InfoField from "./InfoField";
 import MessageBox from "./MessageBox";
 import { connect } from "react-redux";
-import { editing, confirmEdit } from "../../actions/index";
+import {editing, confirmEdit, addAccount} from "../../actions/index";
 
 class UserInfo extends React.Component{
     constructor(props){
         super(props);
         // UserInfo.handleSubmit = UserInfo.handleSubmit.bind(this);
         // this.validateNickName = this.validateNickName.bind(this);
-    }
-
-    handleSubmit(e){
-        e.preventDefault();
     }
 
     validateNickName(nickName){
@@ -61,7 +57,12 @@ class UserInfo extends React.Component{
                         value={this.props.email}
                         onChange={e => this.props.onChange('email', e.target.value)}
                     />
-
+                    <Link to='/' onClick={_ => this.props.onAdd(
+                        this.props.id,
+                        this.props.nickname,
+                        this.props.realname,
+                        this.props.email
+                    )}>Add</Link>
                     <Link to='/' onClick={_ => this.props.onConfirm(
                         this.props.id,
                         this.props.nickname,
@@ -85,6 +86,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onChange: (name, value) => dispatch(editing(name, value)),
+    onAdd: (id, nickname, realname, email) => dispatch(addAccount(id, nickname, realname, email)),
     onConfirm: (id, nickname, realname, email) => dispatch(confirmEdit(id, nickname, realname, email))
 });
 

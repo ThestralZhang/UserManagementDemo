@@ -1,6 +1,8 @@
 
 export const DELETE_ACCOUNT = 'DELETE_ACCOUNT';
 
+export const START_ADD = 'START_ADD';
+
 export const ADD_ACCOUNT = 'ADD_ACCOUNT';
 
 export const START_EDIT = 'START_EDIT';

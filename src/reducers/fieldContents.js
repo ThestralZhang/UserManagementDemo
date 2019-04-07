@@ -2,6 +2,11 @@ const initState = {id: -1, nickname: '', realname: '', email: ''};
 
 const fieldContents = (state = initState, action) => {
     switch (action.type){
+        case 'START_ADD':
+            return {
+                ...initState,
+                id: action.id
+            };
         case 'START_EDIT':
             return {
                 id: action.id,
@@ -10,8 +15,6 @@ const fieldContents = (state = initState, action) => {
                 email: action.email
             };
         case 'EDITING':
-            console.log('ED');
-            console.log(action);
             return {
                 ...state,
                 [action.name]: action.value

@@ -1,7 +1,12 @@
-import {DELETE_ACCOUNT, ADD_ACCOUNT, CONFIRM_EDIT, EDITING, START_EDIT, VALIDATE} from './actionTypes';
+import {DELETE_ACCOUNT, START_ADD, ADD_ACCOUNT, CONFIRM_EDIT, EDITING, START_EDIT, VALIDATE} from './actionTypes';
 
 export const deleteAccount = id => ({
     type: DELETE_ACCOUNT,
+    id
+});
+
+export const startAdd = id => ({
+    type: START_ADD,
     id
 });
 

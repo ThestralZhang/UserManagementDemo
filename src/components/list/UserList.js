@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-3";
 import ListItem from "./ListItem";
 import {connect} from "react-redux";
-import {startEdit, deleteAccount} from "../../actions/index";
+import {startAdd, startEdit, deleteAccount} from "../../actions/index";
 
 class UserList extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class UserList extends React.Component {
         <div>
           <h3>User List</h3>
           <span>count: {this.props.users.length}</span>
-          <Link to="/info">Add</Link>
+          <Link to="/info" onClick={_ => this.props.clickAdd(this.props.users[this.props.users.length-1].id + 1)}>Add</Link>
         </div>
         <table>
           <thead>
@@ -49,6 +49,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+    clickAdd: (id) => dispatch(startAdd(id)),
     clickEdit: (id, nickname, realname, email) => dispatch(startEdit(id, nickname, realname, email)),
     clickDelete: id => dispatch(deleteAccount(id))
 });
