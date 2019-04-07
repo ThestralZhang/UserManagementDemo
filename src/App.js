@@ -16,6 +16,7 @@ let users = [
 ];
 
 const store = createStore(reducers);
+const unsubscribe = store.subscribe(_ => console.log(store.getState()));
 
 class App extends React.Component {
   render() {

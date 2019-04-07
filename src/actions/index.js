@@ -16,7 +16,9 @@ export const addAccount = (id, nickname, realname, email) => ({
 export const confirmEdit = (id, nickname, realname, email) => ({
     type: CONFIRM_EDIT,
     id,
-    info
+    nickname,
+    realname,
+    email
 });
 
 export const editing = (name, value) => ({

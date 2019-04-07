@@ -3,7 +3,7 @@ import { Link } from "react-router-3";
 import InfoField from "./InfoField";
 import MessageBox from "./MessageBox";
 import { connect } from "react-redux";
-import { editing } from "../../actions/index";
+import { editing, confirmEdit } from "../../actions/index";
 
 class UserInfo extends React.Component{
     constructor(props){
@@ -42,7 +42,7 @@ class UserInfo extends React.Component{
         // const {}
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={e => e.preventDefault()}>
                     <InfoField
                         label='Nick Name'
                         validate={this.validateNickName}
@@ -62,7 +62,12 @@ class UserInfo extends React.Component{
                         onChange={e => this.props.onChange('email', e.target.value)}
                     />
 
-                    <button>Confirm</button>
+                    <Link to='/' onClick={_ => this.props.onConfirm(
+                        this.props.id,
+                        this.props.nickname,
+                        this.props.realname,
+                        this.props.email
+                    )}>Confirm</Link>
                     <Link to='/'>Cancel</Link>
                 </form>
                 {/*<MessageBox message={this.state.message}/>*/}
@@ -72,13 +77,15 @@ class UserInfo extends React.Component{
 }
 
 const mapStateToProps = (state, ownProps) => ({
+    id: state.fieldContents.id,
     nickname: state.fieldContents.nickname,
     realname: state.fieldContents.realname,
     email: state.fieldContents.email
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onChange: (name, value) => dispatch(editing(name, value))
+    onChange: (name, value) => dispatch(editing(name, value)),
+    onConfirm: (id, nickname, realname, email) => dispatch(confirmEdit(id, nickname, realname, email))
 });
 
 
