@@ -50,16 +50,36 @@
   .btn(@primeColor, white, @shadowBlue, @tintBlue, @shadowBlue);
 }
 
+@colSepWidth: 2px;
+@colPercents: 22%, 22%, 40%, 16%;
+
+.forWidth(@data, @i: 1) when(@i =< length(@data)) {
+  &:nth-child(@{i}) {
+    width: extract(@data, @i);
+  }
+  .forWidth(@data, (@i + 1));
+}
+
 #user-list {
   width: 80%;
+  min-width: 700px;
   margin: @headerHeight+ @tableHeadHeight auto 0 auto;
-  table-layout: fixed;
+
+  border-collapse: collapse;
+
+  col {
+    border-right: @colSepWidth solid white;
+    &:nth-child(4) {
+      border: none;
+    }
+    .forWidth(@colPercents);
+  }
 
   thead tr {
-    width: 80%;
+    width: calc(~"80% - @{colSepWidth}/2");
+    min-width: 700px;
 
-    display: flex;
-    justify-content: space-around;
+    display: block;
     position: fixed;
     top: @headerHeight;
 
@@ -68,8 +88,13 @@
     background-color: white;
 
     th {
+      display: inline-block;
+      padding: 0;
       height: @tableHeadHeight;
       line-height: @tableHeadHeight;
+      text-align: center;
+
+      .forWidth(@colPercents);
     }
   }
 
@@ -117,6 +142,7 @@
     @shadowYellow
   );
 }
+
 .delete-btn {
   margin-left: 8%;
   .btn("none", @imgUrl -2px -26px, @shadowRed, @imgUrl -26px -26px, @shadowRed);

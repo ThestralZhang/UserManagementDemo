@@ -21,9 +21,7 @@ export default class ListItem extends React.Component {
           <button
             className="op-btn delete-btn"
             onClick={this.props.clickDelete}
-          >
-            d
-          </button>
+          />
         </td>
       </tr>
     );

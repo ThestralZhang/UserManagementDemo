@@ -44,6 +44,12 @@ class UserList extends React.Component {
           </Link>
         </div>
         <table id="user-list">
+          <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+          </colgroup>
           <thead>
             <tr>
               <th>Nick Name</th>
