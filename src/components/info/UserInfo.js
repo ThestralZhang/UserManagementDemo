@@ -152,7 +152,7 @@ UserInfo.propTypes = {
   nickname: PropTypes.string.isRequired,
   realname: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  mode: PropTypes.oneOf(['EDIT', 'ADD', 'none']),
+  mode: PropTypes.oneOf(["EDIT", "ADD", "none"]),
   validateMsg: PropTypes.shape({
     nicknameMsg: PropTypes.string,
     realnameMsg: PropTypes.string,
@@ -161,7 +161,7 @@ UserInfo.propTypes = {
   onChange: PropTypes.func.isRequired,
   onAdd: PropTypes.func.isRequired,
   onConfirm: PropTypes.func.isRequired,
-  onValidate: PropTypes.func.isRequired,
+  onValidate: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({

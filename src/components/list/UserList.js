@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import { startAdd, startEdit, deleteAccount } from "../../actions/index";
 import "./list.less";
 
-const UserList = ({users, clickAdd, clickEdit, clickDelete}) => (
+const UserList = ({ users, clickAdd, clickEdit, clickDelete }) => (
   <div>
     <div id="list-header">
       <span>count: {users.length}</span>
@@ -43,15 +43,16 @@ const UserList = ({users, clickAdd, clickEdit, clickDelete}) => (
             <ListItem
               user={u}
               key={u.id}
-              clickEdit={_ =>
-                clickEdit(u.id, u.nickname, u.realname, u.email)
-              }
+              clickEdit={_ => clickEdit(u.id, u.nickname, u.realname, u.email)}
               clickDelete={_ => clickDelete(u.id)}
             />
           ))
         ) : (
           <tr>
-            <td colSpan={4}> No User in List yet</td>
+            <td id="empty-td" colSpan={4}>
+              {" "}
+              No User in List yet
+            </td>
           </tr>
         )}
       </tbody>
@@ -60,11 +61,13 @@ const UserList = ({users, clickAdd, clickEdit, clickDelete}) => (
 );
 
 UserList.propTypes = {
-  users: PropTypes.arrayOf(PropTypes.shape({
-    nickname: PropTypes.string.isRequired,
-    realname: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired
-  })).isRequired,
+  users: PropTypes.arrayOf(
+    PropTypes.shape({
+      nickname: PropTypes.string.isRequired,
+      realname: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired
+    })
+  ).isRequired,
   clickAdd: PropTypes.func.isRequired,
   clickEdit: PropTypes.func.isRequired,
   clickDelete: PropTypes.func.isRequired
