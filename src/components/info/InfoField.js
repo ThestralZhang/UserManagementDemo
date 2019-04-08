@@ -1,24 +1,26 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-export default class InfoField extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const InfoField = ({ type, placeholder, value, validate, onChange, msg }) => (
+  <div className="info-field">
+    <input
+      type={type || "text"}
+      placeholder={placeholder}
+      value={value}
+      onBlur={validate}
+      onChange={onChange}
+    />
+    <div className={"msg-box" + (msg ? "" : " msg-hidden")}>{msg}</div>
+  </div>
+);
 
-  render() {
-    return (
-      <div className="info-field">
-        <input
-          type={this.props.type || "text"}
-          placeholder={this.props.placeholder}
-          value={this.props.value}
-          onBlur={this.props.validate}
-          onChange={this.props.onChange}
-        />
-        <div className={"msg-box" + (this.props.msg ? "" : " msg-hidden")}>
-          {this.props.msg}
-        </div>
-      </div>
-    );
-  }
-}
+InfoField.propTypes = {
+  type: PropTypes.string,
+  placeholder: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  validate: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  msg: PropTypes.string
+};
+
+export default InfoField;

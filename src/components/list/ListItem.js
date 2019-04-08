@@ -1,29 +1,31 @@
 import React from "react";
 import { Link } from "react-router-3";
+import PropTypes from "prop-types";
 
-export default class ListItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const ListItem = ({user, clickEdit, clickDelete}) => (
+  <tr>
+    <td>{user.nickname}</td>
+    <td>{user.realname}</td>
+    <td>{user.email}</td>
+    <td className="op-td">
+      <Link
+        className="op-btn edit-btn"
+        to="/info"
+        onClick={clickEdit}
+      />
+      <button className="op-btn delete-btn" onClick={clickDelete} />
+    </td>
+  </tr>
+);
 
-  render() {
-    return (
-      <tr>
-        <td>{this.props.user.nickname}</td>
-        <td>{this.props.user.realname}</td>
-        <td>{this.props.user.email}</td>
-        <td className="op-td">
-          <Link
-            className="op-btn edit-btn"
-            to="/info"
-            onClick={this.props.clickEdit}
-          />
-          <button
-            className="op-btn delete-btn"
-            onClick={this.props.clickDelete}
-          />
-        </td>
-      </tr>
-    );
-  }
-}
+ListItem.propTypes = {
+    user: PropTypes.shape({
+        nickname: PropTypes.string.isRequired,
+        realname: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired
+    }),
+    clickEdit: PropTypes.func.isRequired,
+    clickDelete: PropTypes.func.isRequired
+};
+
+export default ListItem;

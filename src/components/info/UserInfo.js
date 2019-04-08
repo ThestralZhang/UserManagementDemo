@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-3";
-import InfoField from "./InfoField";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import InfoField from "./InfoField";
 import {
   editing,
   confirmEdit,
@@ -66,7 +67,6 @@ class UserInfo extends React.Component {
   }
 
   componentWillMount() {
-    console.log("sasas");
     ["nickname", "realname", "email"].forEach(msgName =>
       this.props.onValidate(msgName, "")
     );
@@ -146,6 +146,23 @@ class UserInfo extends React.Component {
     );
   }
 }
+
+UserInfo.propTypes = {
+  id: PropTypes.number.isRequired,
+  nickname: PropTypes.string.isRequired,
+  realname: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  mode: PropTypes.oneOf(['EDIT', 'ADD', 'none']),
+  validateMsg: PropTypes.shape({
+    nicknameMsg: PropTypes.string,
+    realnameMsg: PropTypes.string,
+    emailMsg: PropTypes.string
+  }),
+  onChange: PropTypes.func.isRequired,
+  onAdd: PropTypes.func.isRequired,
+  onConfirm: PropTypes.func.isRequired,
+  onValidate: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = state => ({
   id: state.fieldContents.id,
